@@ -77,6 +77,57 @@
 
 ---
 
+## 🧠 get_keyword 노드
+
+사용자의 음성 명령을 인식하여 **도구(Object)** 및 **목적지(Target)** 정보를 추출하고, 이를 ROS2 서비스 형태로 다른 노드(예: robot_control)로 전달하는 **음성 기반 인터페이스 핵심 노드**입니다.
+
+---
+
+### 📌 주요 기능
+
+1. **Wake Word 감지**
+   - `"hello rokey"`를 감지하면 대기 상태에서 활성 상태로 전환
+   - `"Yes, I'm ready"` TTS 응답으로 사용자와 인터랙션 시작
+
+2. **STT → GPT-4o 기반 명령어 분석**
+   - 사용자의 음성을 **텍스트로 변환 (STT)**
+   - LangChain + GPT-4o 모델을 통해 텍스트에서 명령어 추출  
+   - 예:  
+     - `"메스"` → `object: scalpel`, `target: hands`  
+     - `"트래킹 시작해줘"` → `object: start`, `target: tracking`
+
+3. **명령어 전송 및 응답 처리**
+   - 추출된 명령어를 ROS2 서비스 응답 및 Socket.IO를 통해 다른 모듈로 전달  
+   - 명령 유형에 따라 **TTS 안내** 또는 **웹 UI 알림 송신**
+
+---
+
+### 🗣️ 지원 명령어 예시
+
+| 사용자 입력 | Object | Target | 특이 처리 |
+|-------------|--------|--------|------------|
+| "메스" | scalpel | hands | TTS 응답 |
+| "스프레이" | spray | scar | "소독을 시작합니다" |
+| "석션" | suction | scar | TTS 응답 |
+| "수술정보" | info | info | Socket.IO로 info emit |
+| "트래킹 시작해줘" | start | tracking | TTS "tracking_start" |
+| "트래킹 종료해줘" | stop | tracking | TTS "tracking_stop" |
+
+---
+
+### 🧬 AI 처리 파이프라인
+
+```text
+STT (MicController → OpenAI Whisper) 
+→ LangChain Prompt (GPT-4o) 
+→ 도구 및 목적지 추출 
+→ ROS2 Service 응답 or SocketIO 이벤트 발행
+
+---
+
+
+
+
 ## 🧑‍💻 팀 소개
 
 **TEAM C-4조 - ROBOKRATES**  
