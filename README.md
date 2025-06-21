@@ -159,33 +159,45 @@ robokrates_ws
 - **detection_manager**
 - **flask server**
 
-<img src="https://github.com/user-attachments/assets/ac28bf66-5f60-4e46-b7bf-a0bd356266de" width="400"/>
 
-## 🧠 두산 로봇 노드
+<img src="https://github.com/user-attachments/assets/ac28bf66-5f60-4e46-b7bf-a0bd356266de" width="1280"/>
 
-사용방법
+
+
+
+## Prerequirement
+[InstallFile.zip](https://github.com/user-attachments/files/20845782/InstallFile.zip)
+
+순서대로 .sh 파일 실행하여 설치
+
+
+## 1. 두산 로봇 노드
+
+## 외부 패키지 DoosanBootcamp3rd 설치
+이 프로젝트는 다음 외부 패키지의 설치를 요구합니다:
+
+[DoosanBootcamp3rd GitHub](https://github.com/ROKEY-SPARK/DoosanBootcamp3rd)
 
 ```bash
 ros2 launch dsr_bringup2 dsr_bringup2_rviz.launch.py mode:=real host:=192.168.1.100 port:=12345 model:=m0609
 ```
 
-## 🧠 realsense 노드
+## 2. realsense 노드
 
 사용방법
-
 ```bash
 ros2 launch realsense2_camera rs_align_depth_launch.py depth_module.depth_profile:=640x480x15 rgb_camera.color_profile:=640x480x15 initial_reset:=true align_depth.enable:=true enable_rgbd:=true
 ```
 
 ---
 
-## 🧠 get_keyword 노드
+## get_keyword 노드
 
 사용자의 음성 명령을 인식하여 **도구(Object)** 및 **목적지(Target)** 정보를 추출하고, 이를 ROS2 서비스 형태로 다른 노드(예: robot_control)로 전달하는 **음성 기반 인터페이스 핵심 노드**입니다.
 
 ---
 
-### 📌 주요 기능
+### 주요 기능
 
 1. **Wake Word 감지**
    - `"hello rokey"`를 감지하면 대기 상태에서 활성 상태로 전환
@@ -204,7 +216,7 @@ ros2 launch realsense2_camera rs_align_depth_launch.py depth_module.depth_profil
 
 ---
 
-### 🗣️ 지원 명령어 예시
+### 지원 명령어 예시
 
 | 사용자 입력 | Object | Target | 특이 처리 |
 |-------------|--------|--------|------------|
@@ -217,7 +229,7 @@ ros2 launch realsense2_camera rs_align_depth_launch.py depth_module.depth_profil
 
 ---
 
-### 🧬 AI 처리 파이프라인
+### AI 처리 파이프라인
 
 ```text
 STT (MicController → OpenAI Whisper) 
@@ -226,7 +238,7 @@ STT (MicController → OpenAI Whisper)
 → ROS2 Service 응답 or SocketIO 이벤트 발행
 ```
 ---
-###⚙️ ROS2 인터페이스
+### ROS2 인터페이스
 Service: /get_keyword
 Request: 없음 (std_srvs/Trigger 스타일)
 Response:
@@ -234,7 +246,7 @@ object (str): 예: scalpel
 target (str): 예: hands
 commands (str): 예: tracking_start
 ---
-###🌐 웹 연동
+### 웹 연동
 Socket.IO 서버와 연결하여 UI 및 실시간 피드백 제공
 아래 이벤트를 emit:
 "keyword_text" → 감지된 명령 표시
@@ -307,8 +319,9 @@ Socket.IO 서버와 연결하여 UI 및 실시간 피드백 제공
 ### 📌 실행 예
 
 ```bash
-ros2 run hospital robot_control_node
+ros2 run hospital robot_control
 ```
+
 ---
 # 📡 Tracking 노드 - DSR 수술로봇 객체 추적 제어
 
