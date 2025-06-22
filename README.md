@@ -39,8 +39,8 @@
 
 ### **AI 및 컴퓨터 비전**
 
-- **YOLOv8n**: 로보플로우 기반 라벨링 및 학습, ultralytics 라이브러리 사용  
-- **Deep SORT**: 객체 추적  
+- **YOLOv8n**: 로보플로우 기반 라벨링 및 파인튜닝
+- **DeepSORT**: 객체 추적  
 - **OpenCV**: 영상처리 (외곽선 검출 등)
 
 ### **웹 UI 및 음성 인터페이스**
@@ -392,6 +392,20 @@ ros2 service call /tracking_trigger std_srvs/srv/SetBool "{data: false}"
 로봇 제어 명령은 추적 대상의 위치 변화가 delta > 10 mm 일 때만 발행됨
 좌표계 보정 매트릭스는 수동 캘리브레이션을 통해 생성된 .npy 파일을 사용함
 
+비동기 이동명령
+```python
+amovel(target_pos, vel=20, acc=20, mod=0, radius=10, ra=DR_MV_RA_OVERRIDE)
+wait(0.8)
+```
+
+<img src="https://github.com/user-attachments/assets/95128038-90ee-4bab-812e-66641f633f45" width="1280"/>
+
+pos = 10, 30, 10, 30, 20 으로 이동할 경우
+파란선은 radius = 0, 주황선은 radius = 10 그래프
+
+radius 값을 줌으로써 위치정밀도는 조금 떨어지지만 이동을 부드럽게 바꿀 수 있었음.
+
+
 ---
 
 # 6. Detection 노드
@@ -640,15 +654,15 @@ pip install flask flask_socketio gtts playsound pydicom pillow langchain soundde
 |pick_object	|Python 클라이언트에서 전파된 선택|
 
 ### 동작 예시 흐름
-|----------------|
-|웹에서 DICOM 뷰어 접근 → .dcm 이미지 변환 후 표시|
-|/info 요청 → 환자 이름/성별/나이를 음성으로 출력 (gTTS)|
-|웹에서 객체 선택 → pick_object SocketIO 이벤트 발생|
-|Python ROS 클라이언트로 선택 객체 전달|
-|실시간 탐지 프레임 → binary_frame으로 웹 스트리밍|
+- 웹에서 DICOM 뷰어 접근 → .dcm 이미지 변환 후 표시
+- /info 요청 → 환자 이름/성별/나이를 음성으로 출력 (gTTS)
+- 웹에서 객체 선택 → pick_object SocketIO 이벤트 발생
+- Python ROS 클라이언트로 선택 객체 전달
+- 실시간 탐지 프레임 → binary_frame으로 웹 스트리밍
 
 
 ---
+
 ## 팀 소개
 
 **TEAM C-4조 - ROBOKRATES**  
