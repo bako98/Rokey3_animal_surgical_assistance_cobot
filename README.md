@@ -131,6 +131,7 @@ robokrates_ws/
     │   │       └── wakeup_word.py
     │   ├── package.xml
     │   ├── resource/
+    │   │   ├── .env
     │   │   ├── best.pt
     │   │   ├── best_scalpel_tip.pt
     │   │   ├── class_name_tool.json
@@ -156,6 +157,11 @@ robokrates_ws/
         ├── ...
         ...
 ```
+**requirement**
+src/hospital/resource/
+.env 파일에 OPENAI_API_KEY=~~ 부분에 키를 수정해줘야함
+
+
 
 ---
 
