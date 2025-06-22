@@ -15,6 +15,13 @@
 
 ---
 
+## 동작 영상
+
+[![Video Label](http://img.youtube.com/vi/FbygqjIFBR0/0.jpg)](https://youtu.be/FbygqjIFBR0)
+
+---
+
+
 ## 사용 장비 및 개발 환경
 
 ### **하드웨어**
@@ -573,11 +580,14 @@ ros2 run hospital tracking_detection
 cd robokrates_ws/
 ros2 run hospital detection_manager
 ```
+
+---
+
 # 9. Flask Server 
 
 이 Flask 서버는 DICOM 의료 영상의 시각화와 실시간 객체 탐지 정보의 SocketIO 통신을 동시에 제공하는 통합 웹 서버입니다. 수술 현장의 데이터 시각화, 음성 출력, 명령 수신, 객체 선택 등을 브라우저와 연동하여 처리할 수 있습니다.
 
----
+<img src="https://github.com/user-attachments/assets/b0ee48bb-22ae-474f-a91e-ff185bab4a2e" width="1280"/>
 
 ## 주요 기능
 
