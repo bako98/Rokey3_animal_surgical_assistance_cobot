@@ -559,7 +559,7 @@ ros2 run hospital tracking_detection
 
 ## 시각화 예시
 
-- `scalpel_tip`: 노란색 박스 (`/scalpel_result`)
+- `scalpel_tip`: 하늘색 박스 (`/scalpel_result`)
 - 일반 객체: 초록색 박스 (`/general_result`)
 - 선택된 객체: 파란색 강조
 
@@ -623,6 +623,7 @@ pip install flask flask_socketio gtts playsound pydicom pillow langchain soundde
 ### SocketIO 이벤트 정리
 ### 웹에서 서버로
 |이벤트명	|설명|
+|--------|--------|
 |keyword_text	|명령어(JSON) 수신: object, target, commands|
 |info	|현재 DICOM 파일 정보 → 음성 출력 요청|
 |pick_object	|객체 선택 (label, raw_id)|
@@ -631,6 +632,7 @@ pip install flask flask_socketio gtts playsound pydicom pillow langchain soundde
 
 ### 서버에서 웹으로
 |이벤트명	|설명|
+|--------|--------|
 |spoken_text	|음성으로 출력된 텍스트 반환|
 |selection_confirmed	|선택된 객체 ID 및 label 확인|
 |binary_frame	|실시간 이미지 스트림|
