@@ -412,7 +412,7 @@ ros2 service call /tracking_trigger std_srvs/srv/SetBool "{data: false}"
 ## 사용 토픽 및 서비스
 
 | 유형 | 이름 | 메시지 타입 | 설명 |
-|----|------|-------|------|
+|----|----|----|------|
 | 구독 | /camera/camera/color/image_raw | sensor_msgs/Image | RGB 이미지 |
 | 구독 | /camera/camera/aligned_depth_to_color/image_raw | sensor_msgs/Image | 깊이 이미지 |
 | 구독 | /camera/camera/color/camera_info | sensor_msgs/CameraInfo | 카메라 내부 파라미터 |
