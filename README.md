@@ -161,8 +161,14 @@ robokrates_ws/
 
 src/hospital/resource/.env 파일에 OPENAI_API_KEY=~~ 부분에 키를 수정해줘야함
 
+**설치방법**
 
+robokrates_ws 를 다운받고
 
+```bash
+cd robokrates_ws/
+colcon build
+```
 ---
 
 ## ROS2 노드 구성 (요약)
