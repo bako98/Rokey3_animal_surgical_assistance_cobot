@@ -412,7 +412,7 @@ ros2 service call /tracking_trigger std_srvs/srv/SetBool "{data: false}"
 ## 사용 토픽 및 서비스
 
 | 유형 | 이름 | 메시지 타입 | 설명 |
-|------|------|-------------|------|
+|------|------|-------|------|
 | 구독 | `/camera/camera/color/image_raw` | `sensor_msgs/Image` | RGB 이미지 |
 | 구독 | `/camera/camera/aligned_depth_to_color/image_raw` | `sensor_msgs/Image` | 깊이 이미지 |
 | 구독 | `/camera/camera/color/camera_info` | `sensor_msgs/CameraInfo` | 카메라 내부 파라미터 |
@@ -476,7 +476,7 @@ ros2 run hospital object_detection
 ## 토픽 및 메시지
 
 | 구분 | 토픽명 | 메시지 타입 | 설명 |
-|------|--------|-------------|------|
+|------|-------|-------|------|
 | 구독 | `/camera/camera/color/image_raw` | `sensor_msgs/Image` | RGB 영상 입력 |
 | 구독 | `/camera/camera/aligned_depth_to_color/image_raw` | `sensor_msgs/Image` | Depth 영상 입력 |
 | 구독 | `/camera/camera/color/camera_info` | `sensor_msgs/CameraInfo` | 카메라 내부 파라미터 |
@@ -538,7 +538,7 @@ ros2 run hospital tracking_detection
 ### 구독 토픽
 
 | 토픽명 | 메시지 타입 | 설명 |
-|--------|--------------|------|
+|------|------|------|
 | `/camera/camera/color/image_raw` | `sensor_msgs/Image` | RealSense RGB 이미지 |
 | `/scalpel_result` | `vision_msgs/Detection2DArray` | Scalpel 객체 탐지 결과 |
 | `/general_result` | `vision_msgs/Detection2DArray` | 일반 객체 탐지 결과 |
@@ -546,14 +546,14 @@ ros2 run hospital tracking_detection
 ### 웹 Emit 이벤트
 
 | 이벤트명 | 설명 |
-|----------|------|
+|-------|------|
 | `binary_frame` | 웹으로 전송되는 JPEG 이미지 프레임 (Base64 인코딩) |
 | `detection_list` | 현재 추적된 객체 리스트 (label, class_id, 신뢰도 포함) |
 
 ### 웹 수신 이벤트
 
 | 이벤트명 | 설명 |
-|----------|------|
+|-------|------|
 | `pick_object` | 웹 UI에서 선택된 객체 전달 (label + raw_id) |
 
 
