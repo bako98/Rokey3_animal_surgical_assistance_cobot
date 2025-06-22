@@ -663,6 +663,20 @@ pip install flask flask_socketio gtts playsound pydicom pillow langchain soundde
 
 ---
 
+## 전체 노드 실행 순서
+
+<img src="https://github.com/user-attachments/assets/71b2445a-b805-4df6-bea2-24032527cc84" width="1280"/>
+
+---
+## 욜로 학습 곡선 및 탐지 결과
+
+<img src="https://github.com/user-attachments/assets/1bfd6365-c0da-46fa-8160-fdf5a114a38c" width="1280"/>
+
+<img src="https://github.com/user-attachments/assets/a3f041d5-10d0-4f37-858e-a2bce9ad9c58" width="1280"/>
+
+
+
+---
 ## 팀 소개
 
 **TEAM C-4조 - ROBOKRATES**  
