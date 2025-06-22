@@ -7,7 +7,7 @@
 ## 프로젝트 개요
 
 ### **프로젝트 소개 및 목적**
-#### **프로젝트 소개 및 목적**
+
 현재 수의사 의료 현장은 **보조 인력의 부족**, **높은 노동 강도** 등으로 많은 어려움을 겪고 있습니다.  
 2024년, **두산로보틱스**는 사람을 대상으로 한 내시경 수술에서 협동로봇을 성공적으로 적용하여 보조 인력의 부담을 줄이고 수술의 정밀도를 향상시켰습니다.  
 
@@ -56,7 +56,7 @@
 1. 로봇이 **자체 음성 안내**로 환자의 병적 상태를 수의사에게 전달  
 2. 수의사 음성 인식 후, 로봇이 **메스**를 집어 수의사의 손에 전달  
 3. 음성 명령에 따라, 로봇이 **소독 스프레이**를 잡아 환부에 분사  
-4. 음성 명령에 따라, 로봇이 **석션 도구**를 사용해 이물질 흡입  
+4. 음성 명령에 따라, 로봇이 **석션 도구**를 사용해 **메스 끝단**을 트래킹  
 5. 석션 도구를 제자리에 복귀시키고 **로봇은 홈 위치로 원복**
 
 ---
@@ -64,41 +64,41 @@
 ## 프로젝트 트리 구조
 
 ```
-robokrates_ws
-├── build
-├── flask_hospital
-│   ├── dicom_output
+robokrates_ws/
+├── build/
+├── flask_hospital/
+│   ├── dicom_output/
 │   │   ├── 1.2.410.200028.100.3.20190920.1208500638.12380.1.5.dcm
 │   │   ├── 1.2.410.200028.100.3.20190924.1430080534.21770.1.1.dcm
 │   │   └── 1.2.410.200028.100.3.20190925.1056080334.32610.1.2.dcm
 │   ├── flask_server_fin.py
-│   ├── png_input
+│   ├── png_input/
 │   │   ├── 1.2.410.200028.100.3.20190920.1208500638.12380.1.5.png
 │   │   ├── 1.2.410.200028.100.3.20190924.1430080534.21770.1.1.png
 │   │   └── 1.2.410.200028.100.3.20190925.1056080334.32610.1.2.png
-│   ├── __pycache__
+│   ├── __pycache__/
 │   │   ├── ros2_bridge.cpython-310.pyc
 │   │   └── ros_bridge_node.cpython-310.pyc
-│   ├── static
+│   ├── static/
 │   │   └── converted
 │   │       ├── 1.2.410.200028.100.3.20190920.1208500638.12380.1.5.png
 │   │       ├── 1.2.410.200028.100.3.20190924.1430080534.21770.1.1.png
 │   │       └── 1.2.410.200028.100.3.20190925.1056080334.32610.1.2.png
-│   ├── templates
+│   ├── templates/
 │   │   └── index.html
 │   ├── test.py
 │   └── webcam.py
-├── install
-├── log
-└── src
-    ├── hospital
-    │   ├── hospital
-    │   │   ├── controller
+├── install/
+├── log/
+└── src/
+    ├── hospital/
+    │   ├── hospital/
+    │   │   ├── controller/
     │   │   │   ├── __init__.py
     │   │   │   ├── onrobot.py
     │   │   │   ├── robot_control.py
     │   │   │   └── tracking.py
-    │   │   ├── detection
+    │   │   ├── detection/
     │   │   │   ├── DetectionManager.py
     │   │   │   ├── detection.py
     │   │   │   ├── __init__.py
@@ -107,13 +107,13 @@ robokrates_ws
     │   │   │   ├── yolo.py
     │   │   │   └── yolo_scalpel_tip.py
     │   │   ├── __init__.py
-    │   │   ├── manager
+    │   │   ├── manager/
     │   │   │   └── __init__.py
-    │   │   └── voice
+    │   │   └── voice/
     │   │       ├── get_keyword.py
     │   │       ├── __init__.py
     │   │       ├── MicController.py
-    │   │       ├── __pycache__
+    │   │       ├── __pycache__/
     │   │       │   ├── get_keyword.cpython-310.pyc
     │   │       │   ├── __init__.cpython-310.pyc
     │   │       │   ├── MicController.cpython-310.pyc
@@ -123,7 +123,7 @@ robokrates_ws
     │   │       ├── voice_TTS.py
     │   │       └── wakeup_word.py
     │   ├── package.xml
-    │   ├── resource
+    │   ├── resource/
     │   │   ├── best.pt
     │   │   ├── best_scalpel_tip.pt
     │   │   ├── class_name_tool.json
@@ -136,13 +136,18 @@ robokrates_ws
     │   │   └── tts.mp3
     │   ├── setup.cfg
     │   └── setup.py
-    └── hospital_interfaces
-        ├── CMakeLists.txt
-        ├── LICENSE
-        ├── package.xml
-        └── srv
-            ├── DepthAnglePos.srv
-            └── ObjectTarget.srv
+    ├── hospital_interfaces/
+    │   ├── CMakeLists.txt
+    │   ├── LICENSE
+    │   ├── package.xml
+    │   └── srv/
+    │       ├── DepthAnglePos.srv
+    │       └── ObjectTarget.srv
+    └── DoosanBootcamp3rd/
+        ├── calibration/
+        ├── dsr_bringup2/
+        ├── ...
+        ...
 ```
 
 ---
@@ -160,6 +165,7 @@ robokrates_ws
 - **flask server**
 
 
+<img src="https://github.com/user-attachments/assets/f5d80b67-d562-4793-8ef6-46ee1e6478e5" width="1280"/>
 <img src="https://github.com/user-attachments/assets/ac28bf66-5f60-4e46-b7bf-a0bd356266de" width="1280"/>
 
 
@@ -170,7 +176,11 @@ robokrates_ws
 
 순서대로 .sh 파일 실행하여 설치
 
-
+주의사항) 이 부분은 압축을 푼후 01-prerequirements.sh 파일 실행 후 중간에 패스워드 입력하라는 창이 뜨는 경우, 새로운 패스워드 등록 후 잘 기억하고 재부팅시 파란화면(MOK화면)이 뜨신 분만 따라하시면 됩니다. 그리고 중간에 패스워드 입력하라고 할 시 위에서 입력했었던 패스워드 입력하면 됩니다.
+```
+Perform MOK management 화면(파란 화면) → [Enroll MOK] → [View key 0] → [Esc] → [Continue] → [YES] → [Reboot]
+```
+---
 ## 1. 두산 로봇 노드
 
 ## 외부 패키지 DoosanBootcamp3rd 설치
@@ -178,13 +188,16 @@ robokrates_ws
 
 [DoosanBootcamp3rd GitHub](https://github.com/ROKEY-SPARK/DoosanBootcamp3rd)
 
+robokrates_ws/src/ 에 DoosanBootcamp3rd/ 를 넣고 src에서 colcon build 후 source install/setup.bash
+
+터미널1 doosan robot 노드 실행
 ```bash
 ros2 launch dsr_bringup2 dsr_bringup2_rviz.launch.py mode:=real host:=192.168.1.100 port:=12345 model:=m0609
 ```
-
+---
 ## 2. realsense 노드
 
-사용방법
+터미널2 realsense 노드 실행
 ```bash
 ros2 launch realsense2_camera rs_align_depth_launch.py depth_module.depth_profile:=640x480x15 rgb_camera.color_profile:=640x480x15 initial_reset:=true align_depth.enable:=true enable_rgbd:=true
 ```
@@ -195,7 +208,7 @@ ros2 launch realsense2_camera rs_align_depth_launch.py depth_module.depth_profil
 
 사용자의 음성 명령을 인식하여 **도구(Object)** 및 **목적지(Target)** 정보를 추출하고, 이를 ROS2 서비스 형태로 다른 노드(예: robot_control)로 전달하는 **음성 기반 인터페이스 핵심 노드**입니다.
 
----
+<img src="https://github.com/user-attachments/assets/a3fca366-3c46-4b91-b6db-2c9d00567403" width="1280"/>
 
 ### 주요 기능
 
