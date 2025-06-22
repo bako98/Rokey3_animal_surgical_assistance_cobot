@@ -158,8 +158,8 @@ robokrates_ws/
         ...
 ```
 **requirement**
-src/hospital/resource/
-.env 파일에 OPENAI_API_KEY=~~ 부분에 키를 수정해줘야함
+
+src/hospital/resource/.env 파일에 OPENAI_API_KEY=~~ 부분에 키를 수정해줘야함
 
 
 
