@@ -640,11 +640,12 @@ pip install flask flask_socketio gtts playsound pydicom pillow langchain soundde
 |pick_object	|Python 클라이언트에서 전파된 선택|
 
 ### 동작 예시 흐름
-웹에서 DICOM 뷰어 접근 → .dcm 이미지 변환 후 표시
-/info 요청 → 환자 이름/성별/나이를 음성으로 출력 (gTTS)
-웹에서 객체 선택 → pick_object SocketIO 이벤트 발생
-Python ROS 클라이언트로 선택 객체 전달
-실시간 탐지 프레임 → binary_frame으로 웹 스트리밍
+|----------------|
+|웹에서 DICOM 뷰어 접근 → .dcm 이미지 변환 후 표시|
+|/info 요청 → 환자 이름/성별/나이를 음성으로 출력 (gTTS)|
+|웹에서 객체 선택 → pick_object SocketIO 이벤트 발생|
+|Python ROS 클라이언트로 선택 객체 전달|
+|실시간 탐지 프레임 → binary_frame으로 웹 스트리밍|
 
 
 ---
